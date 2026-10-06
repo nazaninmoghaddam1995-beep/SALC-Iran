@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>معرفی | SALC Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">← بازگشت</a>
+    <h1>معرفی</h1>
+  </header>
+  <main>
+    <section id="video">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+    </section>
+    <section>
+  <h2>سلام، من ... هستم</h2>
+  <p>بیش از چهار سال است که زبان انگلیسی را به کودکان، نوجوانان و بزرگسالان تدریس می‌کنم.</p>
+  <p>در «SALC Iran» می‌توانید از سطح A1 تا B2 و با درس‌های مرحله‌به‌مرحله، واژگان و آزمون‌های کوتاه، زبان انگلیسی را در خانه و با سرعت خودتان یاد بگیرید.</p>
+  <p>این دوره برای همه مناسب است، به‌ویژه اگر در مدرسه با انگلیسی آشنا شده‌اید و حالا می‌خواهید آن را واقعاً به کار ببرید.</p>
+  <p>هر هفته هم یک جلسهٔ آنلاین با هم‌سطحی‌های خودتان خواهید داشت تا آنچه یاد گرفته‌اید را تمرین کنید.</p>
+  <p>با من همراه باشید.</p>
+</section>
+    </section>
+    <section>
+      <a class="btn" href="index.html">شروع یادگیری</a>
+    </section>
+  </main>
+</body>
+</html>
