@@ -304,3 +304,89 @@ footer {
 .hero:first-of-type .button:hover {
     background: var(--purple);
 }
+/* Journey Cards */
+
+main > .learning-areas:last-of-type .card:nth-child(1) {
+    background: var(--lavender);
+}
+
+main > .learning-areas:last-of-type .card:nth-child(2) {
+    background: var(--peach);
+}
+
+main > .learning-areas:last-of-type .card:nth-child(3) {
+    background: var(--blue);
+}
+
+main > .learning-areas:last-of-type .card:nth-child(4) {
+    background: var(--sage);
+}
+
+
+/* Journey Numbers */
+
+main > .learning-areas:last-of-type .card-icon {
+    background: var(--purple);
+    color: white;
+    border-radius: 50%;
+}
+
+
+/* Final CTA */
+
+main > .hero:last-of-type {
+    background: var(--pink);
+    margin-top: 40px;
+    border-radius: 40px 40px 0 0;
+}
+
+main > .hero:last-of-type h2 {
+    color: var(--purple-dark);
+}
+
+main > .hero:last-of-type p {
+    color: var(--text);
+}
+
+main > .hero:last-of-type .button {
+    background: var(--orange);
+}
+
+main > .hero:last-of-type .button:hover {
+    background: var(--purple);
+}
+
+
+/* Smooth Transitions */
+
+.card,
+.button,
+nav a {
+    transition: all 0.2s ease;
+}
+
+
+/* Card Hover */
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(90, 24, 154, 0.14);
+}
+
+
+/* Mobile Adjustments */
+
+@media (max-width: 700px) {
+
+    .hero:first-of-type h1 {
+        font-size: 42px;
+    }
+
+    main > .hero:last-of-type {
+        padding: 70px 20px;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+}
