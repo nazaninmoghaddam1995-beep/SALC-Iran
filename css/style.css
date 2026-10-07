@@ -283,3 +283,24 @@ footer {
         height: 150px;
     }
 }
+.hero:first-of-type {
+    background: var(--lavender);
+    border-radius: 0 0 40px 40px;
+}
+
+.hero:first-of-type h1 {
+    font-size: 64px;
+    color: var(--purple-dark);
+}
+
+.hero:first-of-type p {
+    color: var(--text);
+}
+
+.hero:first-of-type .button {
+    background: var(--orange);
+}
+
+.hero:first-of-type .button:hover {
+    background: var(--purple);
+}
