@@ -1,28 +1,64 @@
+:root {
+    --cream: #fffaf5;
+    --white: #ffffff;
+
+    --lavender: #e8dcf8;
+    --purple: #8b6bb1;
+    --deep-purple: #4f3b63;
+
+    --peach: #ffe1d2;
+    --orange: #e89a68;
+
+    --blue: #dcecf5;
+    --sage: #dfe9dc;
+
+    --text: #403846;
+    --muted: #756d78;
+
+    --border: #eee5ed;
+}
+
+
+/* General */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f8f7f4;
-    color: #222;
+    background: var(--cream);
+    color: var(--text);
 }
+
+
+/* Header */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 7%;
-    background: white;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    color: var(--deep-purple);
 }
 
 nav a {
     margin-left: 25px;
     text-decoration: none;
-    color: #222;
+    color: var(--text);
+    font-weight: 500;
 }
+
+nav a:hover {
+    color: var(--purple);
+}
+
+
+/* Hero */
 
 .hero {
     text-align: center;
@@ -32,6 +68,11 @@ nav a {
 .hero h1 {
     font-size: 56px;
     margin-bottom: 25px;
+    color: var(--deep-purple);
+}
+
+.hero h2 {
+    color: var(--deep-purple);
 }
 
 .hero p {
@@ -39,21 +80,51 @@ nav a {
     max-width: 600px;
     margin: 0 auto 35px;
     line-height: 1.6;
+    color: var(--muted);
 }
+
+
+/* Buttons */
 
 .button {
     display: inline-block;
     padding: 14px 28px;
-    background: #222;
+    background: var(--purple);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.2s ease;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
+.button:hover {
+    background: var(--deep-purple);
+    transform: translateY(-2px);
 }
+
+
+/* Cards */
+
+.card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 25px rgba(79, 59, 99, 0.06);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--deep-purple);
+}
+
+.card p {
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+
+/* Learning Areas */
 
 .learning-areas {
     display: grid;
@@ -62,20 +133,6 @@ footer {
     max-width: 900px;
     margin: 0 auto 80px;
     padding: 20px;
-}
-
-.card {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-}
-
-.card h2 {
-    margin-top: 0;
-}
-
-.card p {
-    line-height: 1.6;
 }
 
 
@@ -88,18 +145,22 @@ footer {
 }
 
 .teacher-card {
-    background: white;
+    background: var(--white);
     padding: 35px;
-    border-radius: 15px;
+    border-radius: 20px;
     margin-bottom: 25px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 25px rgba(79, 59, 99, 0.06);
 }
 
 .teacher-card h2 {
     margin-top: 0;
+    color: var(--deep-purple);
 }
 
 .teacher-card p {
     line-height: 1.7;
+    color: var(--muted);
 }
 
 .teacher-details {
@@ -121,6 +182,7 @@ footer {
     height: 180px;
     object-fit: cover;
     border-radius: 50%;
+    border: 7px solid var(--lavender);
     flex-shrink: 0;
 }
 
@@ -131,16 +193,28 @@ footer {
 .teacher-intro h2 {
     margin-top: 0;
     margin-bottom: 8px;
+    color: var(--deep-purple);
 }
 
 .teacher-intro h3 {
     margin-top: 0;
     font-weight: normal;
-    color: #666;
+    color: var(--orange);
 }
 
 .teacher-intro p {
     line-height: 1.7;
+    color: var(--muted);
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--lavender);
+    color: var(--deep-purple);
 }
 
 
