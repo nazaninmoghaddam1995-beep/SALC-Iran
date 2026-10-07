@@ -762,3 +762,80 @@ body {
     font-family: "DM Sans", Arial, sans-serif;
     letter-spacing: 0.2px;
 }
+/* ================================
+   Modern Footer
+   ================================ */
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-brand h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-family: "Outfit", "DM Sans", Arial, sans-serif;
+}
+
+.footer-brand p {
+    margin: 0;
+    color: var(--lavender);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-links a {
+    padding: 8px 12px;
+
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+
+    transition: all 0.2s ease;
+}
+
+.footer-links a:hover {
+    background: var(--orange);
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1000px;
+    margin: 25px auto 0;
+    padding: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: var(--lavender);
+    font-size: 14px;
+}
+
+
+/* Mobile Footer */
+
+@media (max-width: 700px) {
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
