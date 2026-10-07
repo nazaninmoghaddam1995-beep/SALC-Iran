@@ -722,3 +722,43 @@ main > .learning-areas:first-of-type {
         font-size: 32px;
     }
 }
+/* ================================
+   SALC Typography
+   ================================ */
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+}
+
+.logo,
+.hero h1,
+.hero h2,
+.card h2,
+.salc-intro h2,
+.section-heading h2,
+.how-salc-heading h2,
+.how-step h3 {
+    font-family: "Outfit", "DM Sans", Arial, sans-serif;
+}
+
+.logo {
+    font-weight: 700;
+}
+
+.hero h1 {
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+}
+
+.hero p {
+    letter-spacing: 0.1px;
+}
+
+.card h2 {
+    letter-spacing: -0.4px;
+}
+
+.button {
+    font-family: "DM Sans", Arial, sans-serif;
+    letter-spacing: 0.2px;
+}
