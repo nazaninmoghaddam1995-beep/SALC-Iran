@@ -1,21 +1,19 @@
 :root {
-    --cream: #fffaf5;
-    --white: #ffffff;
+    --purple: #7B2CBF;
+    --purple-dark: #5A189A;
+    --orange: #F97316;
 
-    --lavender: #e8dcf8;
-    --purple: #8b6bb1;
-    --deep-purple: #4f3b63;
+    --lavender: #E9DDF7;
+    --pink: #F9DDE8;
+    --blue: #DCEFF5;
+    --sage: #DDEAD7;
 
-    --peach: #ffe1d2;
-    --orange: #e89a68;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
 
-    --blue: #dcecf5;
-    --sage: #dfe9dc;
-
-    --text: #403846;
-    --muted: #756d78;
-
-    --border: #eee5ed;
+    --text: #30243A;
+    --muted: #6F6575;
+    --border: #E8E0EA;
 }
 
 
@@ -37,13 +35,13 @@ header {
     align-items: center;
     padding: 25px 7%;
     background: var(--white);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--lavender);
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: var(--deep-purple);
+    color: var(--purple);
 }
 
 nav a {
@@ -54,7 +52,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--purple);
+    color: var(--orange);
 }
 
 
@@ -68,11 +66,11 @@ nav a:hover {
 .hero h1 {
     font-size: 56px;
     margin-bottom: 25px;
-    color: var(--deep-purple);
+    color: var(--purple);
 }
 
 .hero h2 {
-    color: var(--deep-purple);
+    color: var(--purple-dark);
 }
 
 .hero p {
@@ -89,16 +87,16 @@ nav a:hover {
 .button {
     display: inline-block;
     padding: 14px 28px;
-    background: var(--purple);
+    background: var(--orange);
     color: white;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: bold;
     transition: 0.2s ease;
 }
 
 .button:hover {
-    background: var(--deep-purple);
+    background: var(--purple);
     transform: translateY(-2px);
 }
 
@@ -109,13 +107,13 @@ nav a:hover {
     background: var(--white);
     padding: 35px;
     border-radius: 20px;
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 25px rgba(79, 59, 99, 0.06);
+    border: 2px solid var(--lavender);
+    box-shadow: 0 8px 25px rgba(90, 24, 154, 0.08);
 }
 
 .card h2 {
     margin-top: 0;
-    color: var(--deep-purple);
+    color: var(--purple);
 }
 
 .card p {
@@ -149,23 +147,18 @@ nav a:hover {
     padding: 35px;
     border-radius: 20px;
     margin-bottom: 25px;
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 25px rgba(79, 59, 99, 0.06);
+    border: 2px solid var(--lavender);
+    box-shadow: 0 8px 25px rgba(90, 24, 154, 0.08);
 }
 
 .teacher-card h2 {
     margin-top: 0;
-    color: var(--deep-purple);
+    color: var(--purple);
 }
 
 .teacher-card p {
     line-height: 1.7;
     color: var(--muted);
-}
-
-.teacher-details {
-    margin-top: 20px;
-    line-height: 1.8;
 }
 
 
@@ -182,7 +175,7 @@ nav a:hover {
     height: 180px;
     object-fit: cover;
     border-radius: 50%;
-    border: 7px solid var(--lavender);
+    border: 8px solid var(--lavender);
     flex-shrink: 0;
 }
 
@@ -193,12 +186,12 @@ nav a:hover {
 .teacher-intro h2 {
     margin-top: 0;
     margin-bottom: 8px;
-    color: var(--deep-purple);
+    color: var(--purple);
 }
 
 .teacher-intro h3 {
     margin-top: 0;
-    font-weight: normal;
+    font-weight: bold;
     color: var(--orange);
 }
 
@@ -214,7 +207,7 @@ footer {
     text-align: center;
     padding: 40px 20px;
     background: var(--lavender);
-    color: var(--deep-purple);
+    color: var(--purple-dark);
 }
 
 
