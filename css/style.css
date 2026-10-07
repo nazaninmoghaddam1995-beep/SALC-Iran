@@ -609,3 +609,116 @@ main > .learning-areas:first-of-type {
         font-size: 16px;
     }
 }
+/* ================================
+   How SALC Works
+   ================================ */
+
+.how-salc-works {
+    margin: 100px 7%;
+    padding: 80px 30px;
+
+    background: var(--peach);
+    border-radius: 35px;
+}
+
+.how-salc-heading {
+    max-width: 700px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.how-salc-heading > span {
+    color: var(--orange);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.how-salc-heading h2 {
+    margin: 12px 0 15px;
+    font-size: 40px;
+    color: var(--purple-dark);
+}
+
+.how-salc-heading p {
+    margin: 0 auto;
+    max-width: 600px;
+
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+
+/* Steps */
+
+.how-salc-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.how-step {
+    padding: 28px;
+    background: var(--white);
+    border-radius: 20px;
+
+    box-shadow: 0 8px 22px rgba(90, 24, 154, 0.08);
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background: var(--purple);
+    color: white;
+
+    font-weight: bold;
+}
+
+.how-step h3 {
+    margin: 0 0 10px;
+    color: var(--purple-dark);
+}
+
+.how-step p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .how-salc-works {
+        margin: 70px 15px;
+        padding: 60px 20px;
+    }
+
+    .how-salc-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .how-salc-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .how-salc-heading h2 {
+        font-size: 32px;
+    }
+}
