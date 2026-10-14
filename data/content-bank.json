@@ -1,0 +1,59 @@
+{
+  "content": [
+    {
+      "id": "A1-S001",
+      "title": "Introducing Yourself",
+      "level": "A1",
+      "skill": "Speaking",
+      "type": "Activity",
+      "topic": "Personal Information",
+      "source_type": "SALC",
+      "description": "Practice introducing yourself and sharing basic personal information.",
+      "url": ""
+    },
+    {
+      "id": "A1-G001",
+      "title": "Present Simple",
+      "level": "A1",
+      "skill": "Grammar",
+      "type": "Exercise",
+      "topic": "Daily Life",
+      "source_type": "SALC",
+      "description": "Practice basic sentences in the present simple.",
+      "url": ""
+    },
+    {
+      "id": "A2-R001",
+      "title": "Reading Practice",
+      "level": "A2",
+      "skill": "Reading",
+      "type": "External Resource",
+      "topic": "Everyday Life",
+      "source_type": "External",
+      "description": "An example entry for an A2 reading resource.",
+      "url": ""
+    },
+    {
+      "id": "B1-S001",
+      "title": "Discussing Everyday Issues",
+      "level": "B1",
+      "skill": "Speaking",
+      "type": "Discussion",
+      "topic": "Everyday Life",
+      "source_type": "SALC",
+      "description": "Practice expressing opinions and supporting them with reasons.",
+      "url": ""
+    },
+    {
+      "id": "B2-R001",
+      "title": "Reading About Technology",
+      "level": "B2",
+      "skill": "Reading",
+      "type": "Activity",
+      "topic": "Technology",
+      "source_type": "SALC",
+      "description": "Practice understanding ideas and arguments in a technology-related text.",
+      "url": ""
+    }
+  ]
+}
