@@ -1,36 +1,79 @@
 async function loadContentBank(level, containerId = "content-bank") {
     const container = document.getElementById(containerId);
+
     if (!container) {
         return;
     }
+
     container.innerHTML = "<p>Loading learning resources...</p>";
+
     try {
         const response = await fetch("../data/content-bank.json");
+
         if (!response.ok) {
             throw new Error("Could not load the content bank.");
         }
+
         const data = await response.json();
-        const items = data.content.filter(
-            item => item.level.toUpperCase() === level.toUpperCase()
+
+        const topics = data.topics.filter(
+            topic => topic.level.toUpperCase() === level.toUpperCase()
         );
-        if (items.length === 0) {
-            container.innerHTML = "<p>New learning resources are coming soon.</p>";
+
+        if (topics.length === 0) {
+            container.innerHTML =
+                "<p>Learning activities for this level are coming soon.</p>";
             return;
         }
-        container.innerHTML = items.map(item => `
-            <article class="content-card">
-                <span class="content-skill">${item.skill}</span>
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                ${
-                    item.url
-                        ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer">Open resource</a>`
-                        : `<span class="content-coming-soon">Coming soon</span>`
-                }
-            </article>
+
+        container.innerHTML = topics.map(topic => `
+            <section class="topic-section">
+
+                <header class="topic-header">
+                    <h2>${topic.title}</h2>
+                    <p>${topic.description}</p>
+                    <p class="learning-outcome">
+                        <strong>Learning outcome:</strong>
+                        ${topic.learning_outcome}
+                    </p>
+                </header>
+
+                <div class="activity-grid">
+                    ${topic.activities
+                        .slice()
+                        .sort((a, b) => a.stage - b.stage)
+                        .map(activity => `
+                            <article class="content-card">
+
+                                <span class="content-skill">
+                                    Step ${activity.stage} · ${activity.skill}
+                                </span>
+
+                                <h3>${activity.title}</h3>
+
+                                <p>${activity.description}</p>
+
+                                <span class="content-coming-soon">
+                                    ${activity.status === "available"
+                                        ? "Available"
+                                        : "Coming soon"}
+                                </span>
+
+                            </article>
+                        `).join("")}
+                </div>
+
+            </section>
         `).join("");
+
     } catch (error) {
-        console.error(error);
-        container.innerHTML = "<p>Resources could not be loaded. Please try again later.</p>";
+        console.error("Content bank error:", error);
+
+        container.innerHTML = `
+            <p>
+                Learning resources could not be loaded.
+                Please try again later.
+            </p>
+        `;
     }
 }
