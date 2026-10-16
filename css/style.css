@@ -1228,3 +1228,18 @@ margin-top: 20px;
 padding: 16px;
 line-height: 1.8;
 }
+/* Prevent A1 topic content from overlapping the sticky header */
+
+.content-bank-section {
+position: relative;
+z-index: 1;
+}
+
+.topic-section {
+position: relative;
+scroll-margin-top: 110px;
+}
+
+.topic-header {
+scroll-margin-top: 110px;
+}
