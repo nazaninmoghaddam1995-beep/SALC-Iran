@@ -1,105 +1,105 @@
 {
-“topics”: [
-{
-“id”: “personal-information”,
-“title”: “Personal Information & Introductions”,
-“title_fa”: “اطلاعات شخصی و معرفی خود”,
-“level”: “A1”,
-“description”: “Learn to introduce yourself and exchange basic personal information.”,
-“learning_outcome”: “Learners can introduce themselves, answer simple personal questions, and write a short personal profile.”,
-“activities”: [
-{
-  "id": "a1-pi-01",
-  "stage": 1,
-  "skill": "Vocabulary",
-  "title": "Let's Introduce Ourselves!",
-  "type": "Interactive Activity",
-  "description": "Learn personal information words and practise introducing yourself.",
-  "status": "available",
-  "url": "a1/personal-information.html"
-},
-{
-“id”: “a1-pi-02”,
-“stage”: 2,
-“skill”: “Vocabulary”,
-“title”: “Personal Information Words”,
-“type”: “Vocabulary Practice”,
-“description”: “Learn words for names, age, countries, cities, and languages.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-03”,
-“stage”: 3,
-“skill”: “Useful Expressions”,
-“title”: “Questions and Answers”,
-“type”: “Expression Practice”,
-“description”: “Practise asking and answering simple questions about personal information.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-04”,
-“stage”: 4,
-“skill”: “Listening”,
-“title”: “Listen to Introductions”,
-“type”: “Listening Activity”,
-“description”: “Listen to short introductions and identify key personal details.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-05”,
-“stage”: 5,
-“skill”: “Grammar”,
-“title”: “Subject Pronouns and Be”,
-“type”: “Grammar Practice”,
-“description”: “Practise I am, you are, he is, and she is in simple sentences.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-06”,
-“stage”: 6,
-“skill”: “Practice”,
-“title”: “Build Correct Sentences”,
-“type”: “Controlled Practice”,
-“description”: “Complete and arrange simple sentences about people.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-07”,
-“stage”: 7,
-“skill”: “Reading”,
-“title”: “Read a Personal Profile”,
-“type”: “Reading Activity”,
-“description”: “Read a short profile and find specific personal information.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-08”,
-“stage”: 8,
-“skill”: “Speaking”,
-“title”: “Introduce Yourself”,
-“type”: “Speaking Activity”,
-“description”: “Introduce yourself and ask another person simple personal questions.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-09”,
-“stage”: 9,
-“skill”: “Writing”,
-“title”: “Write Your Profile”,
-“type”: “Writing Activity”,
-“description”: “Write four to six simple sentences about yourself.”,
-“status”: “planned”
-},
-{
-“id”: “a1-pi-10”,
-“stage”: 10,
-“skill”: “Review”,
-“title”: “Check Your Learning”,
-“type”: “Review Quiz”,
-“description”: “Review key vocabulary, grammar, and personal information questions.”,
-“status”: “planned”
-}
-]
-}
-]
+  "topics": [
+    {
+      "id": "personal-information",
+      "title": "Personal Information & Introductions",
+      "title_fa": "اطلاعات شخصی و معرفی خود",
+      "level": "A1",
+      "description": "Learn to introduce yourself and exchange basic personal information.",
+      "learning_outcome": "Learners can introduce themselves, answer simple personal questions, and write a short personal profile.",
+      "activities": [
+        {
+          "id": "a1-pi-01",
+          "stage": 1,
+          "skill": "Vocabulary",
+          "title": "Let's Introduce Ourselves!",
+          "type": "Interactive Activity",
+          "description": "Learn personal information words and practise introducing yourself.",
+          "status": "available",
+          "url": "a1/personal-information.html"
+        },
+        {
+          "id": "a1-pi-02",
+          "stage": 2,
+          "skill": "Vocabulary",
+          "title": "Personal Information Words",
+          "type": "Vocabulary Practice",
+          "description": "Learn words for names, age, countries, cities, and languages.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-03",
+          "stage": 3,
+          "skill": "Useful Expressions",
+          "title": "Questions and Answers",
+          "type": "Expression Practice",
+          "description": "Practise asking and answering simple questions about personal information.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-04",
+          "stage": 4,
+          "skill": "Listening",
+          "title": "Listen to Introductions",
+          "type": "Listening Activity",
+          "description": "Listen to short introductions and identify key personal details.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-05",
+          "stage": 5,
+          "skill": "Grammar",
+          "title": "Subject Pronouns and Be",
+          "type": "Grammar Practice",
+          "description": "Practise I am, you are, he is, and she is in simple sentences.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-06",
+          "stage": 6,
+          "skill": "Practice",
+          "title": "Build Correct Sentences",
+          "type": "Controlled Practice",
+          "description": "Complete and arrange simple sentences about people.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-07",
+          "stage": 7,
+          "skill": "Reading",
+          "title": "Read a Personal Profile",
+          "type": "Reading Activity",
+          "description": "Read a short profile and find specific personal information.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-08",
+          "stage": 8,
+          "skill": "Speaking",
+          "title": "Introduce Yourself",
+          "type": "Speaking Activity",
+          "description": "Introduce yourself and ask another person simple personal questions.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-09",
+          "stage": 9,
+          "skill": "Writing",
+          "title": "Write Your Profile",
+          "type": "Writing Activity",
+          "description": "Write four to six simple sentences about yourself.",
+          "status": "planned"
+        },
+        {
+          "id": "a1-pi-10",
+          "stage": 10,
+          "skill": "Review",
+          "title": "Check Your Learning",
+          "type": "Review Quiz",
+          "description": "Review key vocabulary, grammar, and personal information questions.",
+          "status": "planned"
+        }
+      ]
+    }
+  ]
 }
