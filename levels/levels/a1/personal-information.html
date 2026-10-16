@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Information | SALC Iran</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <style>
+        .activity-page {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 24px;
+        }
+
+        .activity-intro {
+            background: var(--lavender);
+            padding: 28px;
+            border-radius: 22px;
+            margin-bottom: 28px;
+        }
+
+        .activity-intro h1 {
+            color: var(--purple-dark);
+            margin-bottom: 12px;
+        }
+
+        .task-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 22px;
+        }
+
+        .task-card h2 {
+            color: var(--purple-dark);
+            margin-bottom: 14px;
+        }
+
+        .question {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+
+        .question p {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .question label {
+            display: block;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .question input {
+            margin-right: 8px;
+        }
+
+        .check-button {
+            background: var(--purple);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 18px;
+        }
+
+        .check-button:hover {
+            background: var(--purple-dark);
+        }
+
+        .feedback {
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 12px;
+            line-height: 1.7;
+        }
+
+        .feedback:empty {
+            display: none;
+        }
+
+        .sentence-example {
+            background: var(--cream);
+            border-left: 4px solid var(--orange);
+            padding: 16px;
+            margin: 14px 0;
+            border-radius: 8px;
+            line-height: 1.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav>
+        <a href="../../index.html">Home</a>
+        <a href="../../levels.html">Levels</a>
+        <a href="../../resources.html">Resources</a>
+    </nav>
+</header>
+
+<main class="activity-page">
+
+    <section class="activity-intro">
+        <p>A1 · Personal Information & Introductions</p>
+
+        <h1>Let's Introduce Ourselves!</h1>
+
+        <p>
+            In this activity, you will learn useful words and expressions
+            for introducing yourself in English.
+        </p>
+
+        <p><strong>Learning goal:</strong> Introduce yourself and ask
+        simple questions about another person.</p>
+    </section>
+
+    <section class="task-card">
+        <h2>Part 1: Learn the Words</h2>
+
+        <div class="sentence-example">
+            <strong>Name:</strong> My name is Sara.<br>
+            <strong>Age:</strong> I am 20 years old.<br>
+            <strong>Country:</strong> I am from Iran.<br>
+            <strong>City:</strong> I live in Kerman.<br>
+            <strong>Language:</strong> I speak Persian.
+        </div>
+
+        <p>Read the examples. Then choose the correct answer.</p>
+    </section>
+
+    <section class="task-card">
+        <h2>Part 2: Check Your Understanding</h2>
+
+        <form id="vocabulary-quiz">
+
+            <div class="question">
+                <p>1. "My name is Sara." What information does Sara give?</p>
+
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    Her age
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    Her name
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Her city
+                </label>
+            </div>
+
+            <div class="question">
+                <p>2. "I am from Iran." What does this tell us?</p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    Her country
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    Her language
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    Her age
+                </label>
+            </div>
+
+            <div class="question">
+                <p>3. Which sentence tells us where someone lives?</p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    I speak Persian.
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    I am 20 years old.
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    I live in Kerman.
+                </label>
+            </div>
+
+            <div class="question">
+                <p>4. Which sentence tells us about a language?</p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    I speak Persian.
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    My name is Ali.
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    I am from Iran.
+                </label>
+            </div>
+
+            <button class="check-button" type="button"
+                onclick="checkAnswers()">
+                Check My Answers
+            </button>
+
+            <div id="quiz-feedback"
+                class="feedback"
+                role="status"
+                aria-live="polite">
+            </div>
+
+        </form>
+    </section>
+
+    <section class="task-card">
+        <h2>Part 3: Useful Questions</h2>
+
+        <p>Read these questions and answers aloud.</p>
+
+        <div class="sentence-example">
+            <strong>What's your name?</strong><br>
+            My name is Sara.<br><br>
+
+            <strong>Where are you from?</strong><br>
+            I'm from Iran.<br><br>
+
+            <strong>Where do you live?</strong><br>
+            I live in Kerman.<br><br>
+
+            <strong>What language do you speak?</strong><br>
+            I speak Persian.
+        </div>
+    </section>
+
+    <section class="task-card">
+        <h2>Part 4: Your Turn!</h2>
+
+        <p>Complete these sentences about yourself. You can write your
+        answers in a notebook.</p>
+
+        <div class="sentence-example">
+            My name is __________.<br>
+            I am from __________.<br>
+            I live in __________.<br>
+            I speak __________.
+        </div>
+
+        <p><strong>Speaking challenge:</strong> Say your four sentences
+        aloud without reading them.</p>
+    </section>
+
+    <a class="back-link" href="../a1.html">
+        ← Back to A1 Learning
+    </a>
+
+</main>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1: "b",
+            q2: "a",
+            q3: "c",
+            q4: "a"
+        };
+
+        let score = 0;
+        let unanswered = 0;
+
+        for (const question in answers) {
+            const selected = document.querySelector(
+                `input[name="${question}"]:checked`
+            );
+
+            if (!selected) {
+                unanswered++;
+            } else if (selected.value === answers[question]) {
+                score++;
+            }
+        }
+
+        const feedback = document.getElementById("quiz-feedback");
+
+        if (unanswered > 0) {
+            feedback.style.background = "var(--pink)";
+            feedback.textContent =
+                `You have answered ${4 - unanswered} of 4 questions. ` +
+                "Please answer all the questions, then check again.";
+            return;
+        }
+
+        if (score === 4) {
+            feedback.style.background = "var(--sage)";
+            feedback.textContent =
+                "Excellent! You got 4 out of 4 correct. Well done!";
+        } else {
+            feedback.style.background = "var(--blue)";
+            feedback.textContent =
+                `You got ${score} out of 4 correct. ` +
+                "Review the examples and try again.";
+        }
+    }
+</script>
+
+</body>
+</html>
