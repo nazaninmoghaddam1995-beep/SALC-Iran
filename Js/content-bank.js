@@ -1,4 +1,4 @@
-async function loadContentBank(level, containerId = “content-bank”) {
+async function loadContentBank(level, containerId = "content-bank") {
 const container = document.getElementById(containerId);
 
 if (!container) {
