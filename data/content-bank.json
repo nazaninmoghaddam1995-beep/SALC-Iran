@@ -9,13 +9,14 @@
 “learning_outcome”: “Learners can introduce themselves, answer simple personal questions, and write a short personal profile.”,
 “activities”: [
 {
-“id”: “a1-pi-01”,
-“stage”: 1,
-“skill”: “Discover”,
-“title”: “Meet the Topic”,
-“type”: “Introduction”,
-“description”: “Explore a simple introduction and identify the information people share when they meet.”,
-“status”: “planned”
+  "id": "a1-pi-01",
+  "stage": 1,
+  "skill": "Vocabulary",
+  "title": "Let's Introduce Ourselves!",
+  "type": "Interactive Activity",
+  "description": "Learn personal information words and practise introducing yourself.",
+  "status": "available",
+  "url": "a1/personal-information.html"
 },
 {
 “id”: “a1-pi-02”,
