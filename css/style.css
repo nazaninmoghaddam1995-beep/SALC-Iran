@@ -1243,3 +1243,155 @@ scroll-margin-top: 110px;
 .topic-header {
 scroll-margin-top: 110px;
 }
+/* =================================
+   SALC A1 Content Bank — Mobile Fix
+   ================================= */
+
+.content-bank-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 35px 20px;
+    box-sizing: border-box;
+}
+
+.topic-section {
+    position: relative;
+    margin: 28px auto;
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: 0 6px 20px rgba(90, 24, 154, 0.06);
+}
+
+.topic-header {
+    display: block;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.topic-header h2 {
+    margin: 0 0 16px;
+    color: var(--purple-dark);
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.topic-header > p {
+    margin: 0 0 20px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.topic-header .learning-outcome {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--lavender);
+    border-radius: 14px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+.content-card {
+    box-sizing: border-box;
+    min-width: 0;
+    margin: 0;
+    padding: 24px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(61, 48, 71, 0.06);
+    overflow-wrap: anywhere;
+}
+
+.content-card h3 {
+    margin: 12px 0;
+    color: var(--purple-dark);
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.content-card p {
+    margin: 0 0 16px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.content-skill {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    background: var(--blue);
+    color: var(--text);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.content-card a {
+    display: inline-block;
+    color: var(--purple-dark);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.content-coming-soon {
+    display: inline-block;
+    padding: 6px 10px;
+    background: var(--pink);
+    color: var(--text);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+    .content-bank-section {
+        padding: 24px 15px;
+    }
+
+    .topic-section {
+        margin: 22px auto;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .topic-header h2 {
+        font-size: 24px;
+    }
+
+    .topic-header > p {
+        font-size: 16px;
+    }
+
+    .topic-header .learning-outcome {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .activity-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+    .content-card h3 {
+        font-size: 19px;
+    }
+}
