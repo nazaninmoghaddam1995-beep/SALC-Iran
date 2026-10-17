@@ -57,7 +57,7 @@ try {
                 `).join("")}
         </div>
     </section>
-`).join("");}
+`).join("");
             </div>
         </section>
     `).join("");
