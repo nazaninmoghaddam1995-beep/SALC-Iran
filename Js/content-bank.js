@@ -20,38 +20,44 @@ try {
         return;
     }
     container.innerHTML = topics.map(topic => `
-        <section class="topic-section">
-            <header class="topic-header">
-                <h2>${topic.title}</h2>
-                <p>${topic.description}</p>
-                <p class="learning-outcome">
-                    <strong>Learning outcome:</strong>
-                    ${topic.learning_outcome}
-                </p>
-            </header>
-            <div class="activity-grid">
-                ${(topic.activities || [])
-                    .slice()
-                    .sort((a, b) => a.stage - b.stage)
-                    .map(activity => `
-                        <article class="content-card">
-                            <span class="content-skill">
-                                Step ${activity.stage} · ${activity.skill}
-                            </span>
-                            <h3>${activity.title}</h3>
-                            <p>${activity.description}</p>
-                            ${
-                                activity.status === "available" && activity.url
-                                    ? `<a class="check-button"
-                                          href="${activity.url}">
-                                          Start Activity →
-                                       </a>`
-                                    : `<span class="content-coming-soon">
-                                          Coming soon
-                                       </span>`
-                            }
-                        </article>
-                    `).join("")}
+    <section class="topic-section">
+        <header class="topic-header">
+            <h2>${topic.title}</h2>
+            <p>${topic.description}</p>
+
+            <div class="learning-outcome">
+                <strong>Learning outcome:</strong>
+                ${topic.learning_outcome}
+            </div>
+        </header>
+
+        <div class="activity-grid">
+            ${(topic.activities || [])
+                .slice()
+                .sort((a, b) => a.stage - b.stage)
+                .map(activity => `
+                    <article class="content-card">
+                        <span class="content-skill">
+                            Step ${activity.stage} · ${activity.skill}
+                        </span>
+
+                        <h3>${activity.title}</h3>
+                        <p>${activity.description}</p>
+
+                        ${
+                            activity.status === "available" && activity.url
+                                ? `<a class="check-button" href="${activity.url}">
+                                      Start Activity →
+                                   </a>`
+                                : `<span class="content-coming-soon">
+                                      Coming soon
+                                   </span>`
+                        }
+                    </article>
+                `).join("")}
+        </div>
+    </section>
+`).join("");}
             </div>
         </section>
     `).join("");
