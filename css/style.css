@@ -1395,3 +1395,87 @@ scroll-margin-top: 110px;
         font-size: 19px;
     }
 }
+/* Learning Topic Cards */
+.topic-card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 14px;
+}
+.topic-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 24px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+}
+.topic-card-content {
+    display: block;
+    flex: 1;
+}
+.topic-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+.topic-toggle h2 {
+    margin: 0 0 10px;
+}
+.topic-toggle p {
+    margin: 0 0 14px;
+    line-height: 1.6;
+}
+.topic-outcome {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.topic-arrow {
+    flex-shrink: 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+.topic-activities {
+    padding: 0 24px 24px;
+}
+.topic-activities[hidden] {
+    display: none;
+}
+.topic-activities > h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+.activity-item {
+    padding: 18px;
+    margin-bottom: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+.activity-item h4 {
+    margin: 10px 0;
+}
+.activity-item p {
+    line-height: 1.6;
+}
+@media (max-width: 600px) {
+    .topic-toggle {
+        padding: 18px;
+        gap: 10px;
+    }
+    .topic-activities {
+        padding: 0 18px 18px;
+    }
+    .activity-item {
+        padding: 14px;
+    }
+}
