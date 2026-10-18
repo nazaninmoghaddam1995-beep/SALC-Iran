@@ -1300,3 +1300,8 @@ body {
         transform: none;
     }
 }
+/* TEMPORARY TEST */
+.topic-card {
+    background: #ff0000 !important;
+    border: 5px solid #000000 !important;
+}
