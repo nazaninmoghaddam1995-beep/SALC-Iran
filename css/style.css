@@ -1,7 +1,40 @@
+/* =====================================================
+   SALC Iran — Main Stylesheet (consolidated)
+   ===================================================== */
+
+/*
+  FONTS: "Outfit" and "DM Sans" must be loaded, otherwise Arial is used.
+  Google Fonts can be slow or blocked in Iran, so self-hosting is safer:
+
+  @font-face {
+      font-family: "DM Sans";
+      src: url("../fonts/DMSans-Variable.woff2") format("woff2");
+      font-weight: 400 700;
+      font-display: swap;
+  }
+  @font-face {
+      font-family: "Outfit";
+      src: url("../fonts/Outfit-Variable.woff2") format("woff2");
+      font-weight: 400 700;
+      font-display: swap;
+  }
+*/
+
+
+/* =====================================================
+   1. Tokens
+   ===================================================== */
+
 :root {
     --purple: #7B2CBF;
     --purple-dark: #5A189A;
+
+    /* Decorative orange (icons, borders, focus ring) */
     --orange: #F97316;
+    /* Accessible orange: use for text and for buttons with white text
+       (white on #F97316 is only ~2.8:1; this one is ~5.2:1).
+       To restore the old look, set it back to #F97316. */
+    --orange-strong: #C2410C;
 
     --lavender: #D8C4EA;
     --pink: #F4C6D8;
@@ -15,20 +48,252 @@
     --text: #3D3047;
     --muted: #685C6D;
     --border: #D9CBE0;
+
+    --font-body: "DM Sans", Arial, sans-serif;
+    --font-heading: "Outfit", "DM Sans", Arial, sans-serif;
+
+    --shadow-soft: 0 8px 25px rgba(90, 24, 154, 0.10);
+    --shadow-hover: 0 12px 30px rgba(90, 24, 154, 0.14);
 }
 
 
-/* General */
+/* =====================================================
+   2. Base
+   ===================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--font-body);
     background: var(--cream);
     color: var(--text);
 }
-/* ================================
-   SALC Intro Section
-   ================================ */
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+}
+
+:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+}
+
+
+/* =====================================================
+   3. Header
+   ===================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 7%;
+    background: rgba(255, 253, 251, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--lavender);
+    box-shadow: 0 4px 18px rgba(90, 24, 154, 0.06);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--purple);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a {
+    padding: 9px 13px;
+    border-radius: 10px;
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background: var(--lavender);
+    color: var(--purple-dark);
+}
+
+
+/* =====================================================
+   4. Buttons
+   ===================================================== */
+
+.button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--orange-strong);
+    color: white;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: var(--purple);
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   5. Hero
+   ===================================================== */
+
+.hero {
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+    color: var(--purple);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+}
+
+.hero h2 {
+    color: var(--purple-dark);
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 35px;
+    color: var(--muted);
+    font-size: 20px;
+    line-height: 1.6;
+    letter-spacing: 0.1px;
+}
+
+/* NOTE: :first-of-type / :last-of-type match the ELEMENT type, not the class.
+   They only work if these are the first/last <section> (or <div>) in <main>.
+   More robust: add classes like .hero--intro and .hero--cta in the HTML. */
+
+/* First hero */
+.hero:first-of-type,
+.hero--intro {
+    background: var(--lavender);
+    border-radius: 0 0 40px 40px;
+}
+
+.hero:first-of-type h1,
+.hero--intro h1 {
+    color: var(--purple-dark);
+    font-size: clamp(2.6rem, 6vw, 4rem);
+}
+
+.hero:first-of-type p,
+.hero--intro p {
+    color: var(--text);
+}
+
+/* Final call-to-action hero */
+main > .hero:last-of-type,
+.hero--cta {
+    margin-top: 40px;
+    background: var(--pink);
+    border-radius: 40px 40px 0 0;
+}
+
+main > .hero:last-of-type p,
+.hero--cta p {
+    color: var(--text);
+}
+
+@media (max-width: 700px) {
+    .hero {
+        padding: 80px 20px;
+    }
+
+    main > .hero:last-of-type,
+    .hero--cta {
+        padding: 70px 20px;
+    }
+}
+
+
+/* =====================================================
+   6. Section labels and headings
+   ===================================================== */
+
+.section-label,
+.section-heading > span,
+.how-salc-heading > span {
+    color: var(--orange-strong);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.section-heading {
+    max-width: 800px;
+    margin: 90px auto 35px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 12px 0 15px;
+    color: var(--purple-dark);
+    font-size: 36px;
+}
+
+.section-heading p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .section-heading {
+        margin-top: 60px;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .section-heading p {
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+   7. SALC Intro
+   ===================================================== */
 
 .salc-intro {
     max-width: 1000px;
@@ -37,47 +302,33 @@ body {
 }
 
 .salc-intro-text {
+    padding: 55px;
     background: var(--white);
     border: 2px solid var(--lavender);
     border-radius: 28px;
-    padding: 55px;
-    text-align: center;
     box-shadow: 0 10px 30px rgba(90, 24, 154, 0.08);
-}
-
-.section-label {
-    display: inline-block;
-    margin-bottom: 15px;
-
-    color: var(--orange);
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    text-align: center;
 }
 
 .salc-intro h2 {
     margin: 0 0 20px;
-
-    font-size: 38px;
     color: var(--purple-dark);
+    font-size: 38px;
 }
 
 .salc-intro h2 span {
-    color: var(--orange);
+    color: var(--orange-strong);
 }
 
 .salc-intro p {
     max-width: 650px;
     margin: 0 auto;
-
+    color: var(--muted);
     font-size: 18px;
     line-height: 1.7;
-    color: var(--muted);
 }
 
-
 @media (max-width: 700px) {
-
     .salc-intro {
         margin: 45px auto;
     }
@@ -92,438 +343,60 @@ body {
 }
 
 
-/* Header */
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 7%;
-    background: var(--white);
-    border-bottom: 3px solid var(--lavender);
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--purple);
-}
-
-nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 600;
-}
-
-nav a:hover {
-    color: var(--orange);
-}
-
-
-/* Hero */
-
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.hero h1 {
-    font-size: 56px;
-    margin-bottom: 25px;
-    color: var(--purple);
-}
-
-.hero h2 {
-    color: var(--purple-dark);
-}
-
-.hero p {
-    font-size: 20px;
-    max-width: 600px;
-    margin: 0 auto 35px;
-    line-height: 1.6;
-    color: var(--muted);
-}
-
-
-/* Buttons */
-
-.button {
-    display: inline-block;
-    padding: 14px 28px;
-    background: var(--orange);
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: bold;
-    transition: 0.2s ease;
-}
-
-.button:hover {
-    background: var(--purple);
-    transform: translateY(-2px);
-}
-
-
-/* Cards */
+/* =====================================================
+   8. Cards and Learning Areas
+   ===================================================== */
 
 .card {
-    background: var(--lavender);
     padding: 35px;
-    border-radius: 20px;
+    background: var(--lavender);
     border: 2px solid rgba(123, 44, 191, 0.15);
-    box-shadow: 0 8px 25px rgba(90, 24, 154, 0.10);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:nth-child(2) {
-    background: var(--peach);
-}
+/* Colour cycle: lavender, peach, blue, sage, then repeats */
+.card:nth-child(4n + 2) { background: var(--peach); }
+.card:nth-child(4n + 3) { background: var(--blue); }
+.card:nth-child(4n + 4) { background: var(--sage); }
 
-.card:nth-child(3) {
-    background: var(--blue);
-}
-
-.card:nth-child(4) {
-    background: var(--sage);
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
 .card h2 {
     margin-top: 0;
     color: var(--purple-dark);
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: -0.4px;
 }
 
 .card p {
-    line-height: 1.6;
     color: var(--text);
+    line-height: 1.6;
 }
-
-
-/* Learning Areas */
 
 .learning-areas {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
     max-width: 900px;
     margin: 0 auto 80px;
     padding: 20px;
 }
 
-
-/* Learning Guides */
-
-.learning-guide-profile {
-    max-width: 1000px;
-    margin: 0 auto 60px;
-    padding: 20px;
+main > .learning-areas:first-of-type {
+    margin-top: 20px;
 }
-
-.teacher-card {
-    background: var(--lavender);
-    padding: 35px;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    border: 2px solid rgba(123, 44, 191, 0.15);
-    box-shadow: 0 8px 25px rgba(90, 24, 154, 0.10);
-}
-
-.teacher-card:nth-child(2) {
-    background: var(--peach);
-}
-
-.teacher-card:nth-child(3) {
-    background: var(--blue);
-}
-
-.teacher-card:nth-child(4) {
-    background: var(--sage);
-}
-
-.teacher-card:nth-child(5) {
-    background: var(--pink);
-}
-
-.teacher-card:nth-child(6) {
-    background: var(--lavender);
-}
-
-.teacher-card h2 {
-    margin-top: 0;
-    color: var(--purple-dark);
-}
-
-.teacher-card p {
-    line-height: 1.7;
-    color: var(--text);
-}
-
-
-/* Teacher Profile */
-
-.teacher-profile {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.teacher-photo {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 8px solid var(--purple);
-    flex-shrink: 0;
-}
-
-.teacher-intro {
-    flex: 1;
-}
-
-.teacher-intro h2 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: var(--purple-dark);
-}
-
-.teacher-intro h3 {
-    margin-top: 0;
-    font-weight: bold;
-    color: var(--orange);
-}
-
-.teacher-intro p {
-    line-height: 1.7;
-    color: var(--text);
-}
-
-
-/* Footer */
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: var(--purple-dark);
-    color: white;
-}
-
-
-/* Mobile */
-
-@media (max-width: 700px) {
-
-    header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    nav a {
-        margin: 0 8px;
-    }
-
-    .hero {
-        padding: 80px 20px;
-    }
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .learning-areas {
-        grid-template-columns: 1fr;
-    }
-
-    .teacher-profile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .teacher-photo {
-        width: 150px;
-        height: 150px;
-    }
-}
-.hero:first-of-type {
-    background: var(--lavender);
-    border-radius: 0 0 40px 40px;
-}
-
-.hero:first-of-type h1 {
-    font-size: 64px;
-    color: var(--purple-dark);
-}
-
-.hero:first-of-type p {
-    color: var(--text);
-}
-
-.hero:first-of-type .button {
-    background: var(--orange);
-}
-
-.hero:first-of-type .button:hover {
-    background: var(--purple);
-}
-/* Journey Cards */
-
-main > .learning-areas:last-of-type .card:nth-child(1) {
-    background: var(--lavender);
-}
-
-main > .learning-areas:last-of-type .card:nth-child(2) {
-    background: var(--peach);
-}
-
-main > .learning-areas:last-of-type .card:nth-child(3) {
-    background: var(--blue);
-}
-
-main > .learning-areas:last-of-type .card:nth-child(4) {
-    background: var(--sage);
-}
-
-
-/* Journey Numbers */
-
-main > .learning-areas:last-of-type .card-icon {
-    background: var(--purple);
-    color: white;
-    border-radius: 50%;
-}
-
-
-/* Final CTA */
-
-main > .hero:last-of-type {
-    background: var(--pink);
-    margin-top: 40px;
-    border-radius: 40px 40px 0 0;
-}
-
-main > .hero:last-of-type h2 {
-    color: var(--purple-dark);
-}
-
-main > .hero:last-of-type p {
-    color: var(--text);
-}
-
-main > .hero:last-of-type .button {
-    background: var(--orange);
-}
-
-main > .hero:last-of-type .button:hover {
-    background: var(--purple);
-}
-
-
-/* Smooth Transitions */
-
-.card,
-.button,
-nav a {
-    transition: all 0.2s ease;
-}
-
-
-/* Card Hover */
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(90, 24, 154, 0.14);
-}
-
-
-/* Mobile Adjustments */
-
-@media (max-width: 700px) {
-
-    .hero:first-of-type h1 {
-        font-size: 42px;
-    }
-
-    main > .hero:last-of-type {
-        padding: 70px 20px;
-    }
-
-    .card:hover {
-        transform: none;
-    }
-}
-/* ================================
-   Modern Header
-   ================================ */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    padding: 18px 7%;
-
-    background: rgba(255, 253, 251, 0.96);
-    backdrop-filter: blur(10px);
-
-    border-bottom: 2px solid var(--lavender);
-
-    box-shadow: 0 4px 18px rgba(90, 24, 154, 0.06);
-}
-
-.logo {
-    font-size: 26px;
-    letter-spacing: -0.5px;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-nav a {
-    margin-left: 0;
-    padding: 9px 13px;
-    border-radius: 10px;
-}
-
-nav a:hover {
-    background: var(--lavender);
-    color: var(--purple-dark);
-}
-
-
-/* Mobile Header */
-
-@media (max-width: 700px) {
-
-    header {
-        padding: 16px 15px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4px;
-    }
-
-    nav a {
-        padding: 7px 9px;
-        font-size: 14px;
-    }
-}
-/* ================================
-   Home Page Card Layout
-   ================================ */
 
 .learning-areas .card {
-    min-height: 220px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    min-height: 220px;
 }
 
 .learning-areas .card p {
@@ -534,25 +407,28 @@ nav a:hover {
     align-self: flex-start;
 }
 
-
-/* Better Section Spacing */
-
-main > .learning-areas:first-of-type {
-    margin-top: 20px;
+/* Journey numbers.
+   The old rule used :last-of-type, which probably never matched when the final
+   CTA hero is the last element in <main>. Add class="journey-cards" to the
+   grid in your HTML for a reliable hook (the old selector is kept as fallback). */
+.journey-cards .card-icon,
+main > .learning-areas:last-of-type .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+    background: var(--purple);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
 }
-
-
-/* Better Card Titles */
-
-.card h2 {
-    font-size: 24px;
-    line-height: 1.3;
-}
-
-
-/* Mobile Cards */
 
 @media (max-width: 700px) {
+    .learning-areas {
+        grid-template-columns: 1fr;
+    }
 
     .learning-areas .card {
         min-height: auto;
@@ -561,62 +437,20 @@ main > .learning-areas:first-of-type {
     .card h2 {
         font-size: 22px;
     }
-}
-/* ================================
-   Section Heading
-   ================================ */
 
-.section-heading {
-    max-width: 800px;
-    margin: 90px auto 35px;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.section-heading > span {
-    color: var(--orange);
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    margin: 12px 0 15px;
-    font-size: 36px;
-    color: var(--purple-dark);
-}
-
-.section-heading p {
-    max-width: 650px;
-    margin: 0 auto;
-    line-height: 1.7;
-    font-size: 18px;
-    color: var(--muted);
-}
-
-
-@media (max-width: 700px) {
-
-    .section-heading {
-        margin-top: 60px;
-    }
-
-    .section-heading h2 {
-        font-size: 29px;
-    }
-
-    .section-heading p {
-        font-size: 16px;
+    .card:hover {
+        transform: none;
     }
 }
-/* ================================
-   How SALC Works
-   ================================ */
+
+
+/* =====================================================
+   9. How SALC Works
+   ===================================================== */
 
 .how-salc-works {
     margin: 100px 7%;
     padding: 80px 30px;
-
     background: var(--peach);
     border-radius: 35px;
 }
@@ -627,34 +461,23 @@ main > .learning-areas:first-of-type {
     text-align: center;
 }
 
-.how-salc-heading > span {
-    color: var(--orange);
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
 .how-salc-heading h2 {
     margin: 12px 0 15px;
-    font-size: 40px;
     color: var(--purple-dark);
+    font-size: 40px;
 }
 
 .how-salc-heading p {
-    margin: 0 auto;
     max-width: 600px;
-
+    margin: 0 auto;
+    color: var(--text);
     font-size: 18px;
     line-height: 1.7;
-    color: var(--text);
 }
-
-
-/* Steps */
 
 .how-salc-steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
     max-width: 1000px;
     margin: 0 auto;
@@ -664,25 +487,19 @@ main > .learning-areas:first-of-type {
     padding: 28px;
     background: var(--white);
     border-radius: 20px;
-
     box-shadow: 0 8px 22px rgba(90, 24, 154, 0.08);
 }
 
 .step-number {
-    width: 48px;
-    height: 48px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 48px;
+    height: 48px;
     margin-bottom: 20px;
-
-    border-radius: 50%;
-
     background: var(--purple);
+    border-radius: 50%;
     color: white;
-
     font-weight: bold;
 }
 
@@ -693,27 +510,22 @@ main > .learning-areas:first-of-type {
 
 .how-step p {
     margin: 0;
-    line-height: 1.6;
     color: var(--muted);
+    line-height: 1.6;
 }
 
-
-/* Mobile */
-
 @media (max-width: 800px) {
-
     .how-salc-works {
         margin: 70px 15px;
         padding: 60px 20px;
     }
 
     .how-salc-steps {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 500px) {
-
     .how-salc-steps {
         grid-template-columns: 1fr;
     }
@@ -722,164 +534,122 @@ main > .learning-areas:first-of-type {
         font-size: 32px;
     }
 }
-/* ================================
-   SALC Typography
-   ================================ */
 
-body {
-    font-family: "DM Sans", Arial, sans-serif;
-}
 
-.logo,
-.hero h1,
-.hero h2,
-.card h2,
-.salc-intro h2,
-.section-heading h2,
-.how-salc-heading h2,
-.how-step h3 {
-    font-family: "Outfit", "DM Sans", Arial, sans-serif;
-}
+/* =====================================================
+   10. Learning Guides / Teacher Profile
+   ===================================================== */
 
-.logo {
-    font-weight: 700;
-}
-
-.hero h1 {
-    letter-spacing: -1.5px;
-    line-height: 1.05;
-}
-
-.hero p {
-    letter-spacing: 0.1px;
-}
-
-.card h2 {
-    letter-spacing: -0.4px;
-}
-
-.button {
-    font-family: "DM Sans", Arial, sans-serif;
-    letter-spacing: 0.2px;
-}
-/* ================================
-   Modern Footer
-   ================================ */
-
-.footer-content {
+.learning-guide-profile {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     padding: 20px;
+}
 
+.teacher-card {
+    margin-bottom: 25px;
+    padding: 35px;
+    background: var(--lavender);
+    border: 2px solid rgba(123, 44, 191, 0.15);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Colour cycle of 5: lavender, peach, blue, sage, pink, then repeats */
+.teacher-card:nth-child(5n + 2) { background: var(--peach); }
+.teacher-card:nth-child(5n + 3) { background: var(--blue); }
+.teacher-card:nth-child(5n + 4) { background: var(--sage); }
+.teacher-card:nth-child(5n + 5) { background: var(--pink); }
+
+.teacher-card h2 {
+    margin-top: 0;
+    color: var(--purple-dark);
+}
+
+.teacher-card p {
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.teacher-profile {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 40px;
 }
 
-.footer-brand h2 {
+.teacher-photo {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 8px solid var(--purple);
+    border-radius: 50%;
+}
+
+.teacher-intro {
+    flex: 1;
+}
+
+.teacher-intro h2 {
     margin: 0 0 8px;
-    color: white;
-    font-family: "Outfit", "DM Sans", Arial, sans-serif;
+    color: var(--purple-dark);
 }
 
-.footer-brand p {
-    margin: 0;
-    color: var(--lavender);
+.teacher-intro h3 {
+    margin-top: 0;
+    color: var(--orange-strong);
+    font-weight: bold;
 }
 
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+.teacher-intro p {
+    color: var(--text);
+    line-height: 1.7;
 }
-
-.footer-links a {
-    padding: 8px 12px;
-
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-
-    transition: all 0.2s ease;
-}
-
-.footer-links a:hover {
-    background: var(--orange);
-    color: white;
-}
-
-.footer-bottom {
-    max-width: 1000px;
-    margin: 25px auto 0;
-    padding: 20px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-
-    text-align: center;
-}
-
-.footer-bottom p {
-    margin: 0;
-    color: var(--lavender);
-    font-size: 14px;
-}
-
-
-/* Mobile Footer */
 
 @media (max-width: 700px) {
-
-    .footer-content {
+    .teacher-profile {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-links {
-        justify-content: center;
+    .teacher-photo {
+        width: 150px;
+        height: 150px;
     }
 }
-/* ================================
-   Podcast
-   ================================ */
+
+
+/* =====================================================
+   11. Podcast
+   ===================================================== */
 
 .podcast-hero {
     background: var(--lavender);
     border-radius: 0 0 40px 40px;
 }
 
-.podcast-icon {
-    width: 72px;
-    height: 72px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0 auto 20px;
-
-    background: var(--purple);
-    color: white;
-
-    border-radius: 22px;
-
-    font-size: 34px;
-
-    box-shadow: 0 8px 20px rgba(90, 24, 154, 0.15);
-}
-
 .podcast-hero h1 {
     color: var(--purple-dark);
 }
 
-
-/* Episodes */
+.podcast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    background: var(--purple);
+    border-radius: 22px;
+    box-shadow: 0 8px 20px rgba(90, 24, 154, 0.15);
+    color: white;
+    font-size: 34px;
+}
 
 .podcast-episodes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
-
     max-width: 1100px;
     margin: 0 auto 100px;
     padding: 20px;
@@ -887,20 +657,26 @@ body {
 
 .podcast-card {
     padding: 30px;
-
     background: var(--white);
-
     border: 2px solid var(--lavender);
     border-radius: 24px;
-
     box-shadow: 0 8px 25px rgba(90, 24, 154, 0.08);
-
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .podcast-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 14px 30px rgba(90, 24, 154, 0.14);
+}
+
+.podcast-card h2 {
+    margin-bottom: 12px;
+    color: var(--purple-dark);
+}
+
+.podcast-card p {
+    color: var(--muted);
+    line-height: 1.6;
 }
 
 .episode-top {
@@ -916,82 +692,59 @@ body {
 
 .level-badge {
     padding: 6px 10px;
-
     background: var(--peach);
-    color: var(--purple-dark);
-
     border-radius: 8px;
-
+    color: var(--purple-dark);
     font-size: 13px;
     font-weight: bold;
 }
 
 .play-icon {
-    width: 52px;
-    height: 52px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 52px;
+    height: 52px;
     margin: 25px 0 20px;
-
     background: var(--orange);
-    color: white;
-
     border-radius: 50%;
-
+    color: white;
     font-size: 18px;
-}
-
-.podcast-card h2 {
-    margin-bottom: 12px;
-    color: var(--purple-dark);
-}
-
-.podcast-card p {
-    line-height: 1.6;
-    color: var(--muted);
 }
 
 .episode-meta {
     display: flex;
     justify-content: space-between;
-
     margin: 25px 0;
-
-    font-size: 14px;
     color: var(--muted);
+    font-size: 14px;
 }
 
 .listen-button {
     width: 100%;
     padding: 12px;
-
+    background: var(--lavender);
     border: none;
     border-radius: 10px;
-
-    background: var(--lavender);
     color: var(--purple-dark);
-
+    cursor: pointer;
+    font: inherit;
     font-weight: bold;
+    transition: background 0.2s ease;
 }
 
-
-/* Learning Section */
+.listen-button:hover {
+    background: var(--peach);
+}
 
 .podcast-learning {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-
     max-width: 1000px;
-
     margin: 0 auto 100px;
     padding: 60px;
-
     background: var(--blue);
-
     border-radius: 30px;
 }
 
@@ -1001,16 +754,14 @@ body {
 }
 
 .podcast-learning p {
-    line-height: 1.7;
     color: var(--text);
+    line-height: 1.7;
 }
 
 .podcast-learning-items > div {
     margin-bottom: 20px;
     padding: 20px;
-
     background: var(--white);
-
     border-radius: 16px;
 }
 
@@ -1018,21 +769,14 @@ body {
     color: var(--purple-dark);
 }
 
-
-/* Podcast CTA */
-
 .podcast-cta {
     background: var(--pink);
     border-radius: 40px 40px 0 0;
 }
 
-
-/* Mobile */
-
 @media (max-width: 800px) {
-
     .podcast-episodes {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .podcast-learning {
@@ -1043,7 +787,6 @@ body {
 }
 
 @media (max-width: 550px) {
-
     .podcast-episodes {
         grid-template-columns: 1fr;
     }
@@ -1053,20 +796,98 @@ body {
     }
 }
 
-/* =================================
-   SALC Iran — Learning Activities
-   ================================= */
+
+/* =====================================================
+   12. Footer
+   ===================================================== */
+
+footer {
+    padding: 40px 20px;
+    background: var(--purple-dark);
+    color: white;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-brand h2 {
+    margin: 0 0 8px;
+    color: white;
+}
+
+.footer-brand p {
+    margin: 0;
+    color: var(--lavender);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-links a {
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.footer-links a:hover {
+    background: var(--orange-strong);
+}
+
+.footer-bottom {
+    max-width: 1000px;
+    margin: 25px auto 0;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: var(--lavender);
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+
+/* =====================================================
+   13. Learning Activities (Content Bank)
+   ===================================================== */
+
 .content-bank-section {
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px 70px;
-    box-sizing: border-box;
 }
+
 .content-bank-section > h2,
 .content-bank-section > p {
     text-align: center;
 }
-/* Topic Card */
+
+/* Topic card */
 .topic-card {
     margin: 25px 0;
     padding: 0;
@@ -1077,11 +898,15 @@ body {
     box-shadow: 0 8px 24px rgba(90, 24, 154, 0.07);
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
+
+/* Prevents the generic .card hover lift / colour cycle from affecting topic cards */
 .topic-card:hover {
+    transform: none;
     border-color: var(--purple);
     box-shadow: 0 12px 30px rgba(90, 24, 154, 0.11);
 }
-/* Clickable Topic Header */
+
+/* Clickable header */
 .topic-toggle {
     display: flex;
     align-items: center;
@@ -1089,62 +914,70 @@ body {
     gap: 20px;
     width: 100%;
     padding: 30px;
-    border: none;
     background: transparent;
+    border: none;
     color: var(--text);
-    text-align: left;
     cursor: pointer;
     font: inherit;
+    text-align: start;
 }
+
 .topic-toggle:focus-visible {
-    outline: 3px solid var(--orange);
     outline-offset: -5px;
 }
+
 .topic-card-content {
     display: block;
     flex: 1;
     min-width: 0;
 }
+
 .topic-label {
     display: inline-block;
     margin-bottom: 14px;
     padding: 7px 12px;
     background: var(--lavender);
-    color: var(--purple-dark);
     border-radius: 20px;
+    color: var(--purple-dark);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
 }
-.topic-toggle h2 {
+
+/* Works whether h2/p sit inside the button (current) or in a heading wrapper */
+.topic-card-content h2 {
     margin: 0 0 12px;
     color: var(--purple-dark);
-    font-family: "Outfit", "DM Sans", Arial, sans-serif;
     font-size: 28px;
     line-height: 1.3;
 }
-.topic-toggle p {
+
+.topic-card-content p {
     margin: 0 0 20px;
     color: var(--muted);
     font-size: 16px;
     line-height: 1.7;
 }
+
 .topic-outcome {
     display: block;
     padding: 15px 18px;
     background: var(--cream);
-    border-left: 4px solid var(--orange);
-    border-radius: 0 12px 12px 0;
+    border-inline-start: 4px solid var(--orange);
+    border-start-end-radius: 12px;
+    border-end-end-radius: 12px;
     color: var(--text);
     font-size: 14px;
     line-height: 1.7;
 }
+
 .topic-outcome strong {
     display: block;
     margin-bottom: 4px;
     color: var(--purple-dark);
 }
-/* Expand / Collapse Icon */
+
+/* Expand / collapse icon */
 .topic-arrow {
     display: flex;
     align-items: center;
@@ -1153,149 +986,207 @@ body {
     width: 42px;
     height: 42px;
     background: var(--lavender);
-    color: var(--purple-dark);
     border-radius: 50%;
+    color: var(--purple-dark);
     font-size: 25px;
     line-height: 1;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
+
 .topic-toggle:hover .topic-arrow {
     background: var(--peach);
 }
-/* Activities Inside the Topic */
+
+.topic-toggle[aria-expanded="true"] .topic-arrow {
+    background: var(--purple);
+    color: white;
+}
+
+/* Activities panel */
 .topic-activities {
     padding: 0 30px 30px;
     border-top: 1px solid var(--border);
 }
+
 .topic-activities[hidden] {
     display: none;
 }
+
 .topic-activities > h3 {
     margin: 25px 0 20px;
     color: var(--purple-dark);
-    font-family: "Outfit", "DM Sans", Arial, sans-serif;
     font-size: 22px;
 }
-/* Activity Grid */
+
 .activity-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
 }
-/* Individual Activity */
+
 .activity-item {
     min-width: 0;
     padding: 22px;
     background: var(--cream);
     border: 1px solid var(--border);
     border-radius: 18px;
-    box-sizing: border-box;
     overflow-wrap: anywhere;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .activity-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 7px 18px rgba(90, 24, 154, 0.08);
 }
+
 .activity-item .content-skill {
     display: inline-block;
     margin-bottom: 10px;
     padding: 6px 10px;
     background: var(--blue);
-    color: var(--text);
     border-radius: 20px;
+    color: var(--text);
     font-size: 12px;
     font-weight: 700;
 }
+
 .activity-item h4 {
     margin: 5px 0 10px;
     color: var(--purple-dark);
-    font-family: "Outfit", "DM Sans", Arial, sans-serif;
     font-size: 19px;
     line-height: 1.4;
 }
+
 .activity-item p {
     margin: 0 0 18px;
     color: var(--muted);
     font-size: 15px;
     line-height: 1.7;
 }
-/* Start Activity Button */
+
 .activity-item .check-button {
     display: inline-block;
     padding: 11px 16px;
-    background: var(--orange);
-    color: white;
+    background: var(--orange-strong);
     border-radius: 10px;
-    text-decoration: none;
+    color: white;
     font-size: 14px;
     font-weight: 700;
+    text-decoration: none;
     transition: background 0.2s ease;
 }
+
 .activity-item .check-button:hover {
     background: var(--purple);
 }
-/* Coming Soon */
+
 .activity-item .content-coming-soon {
     display: inline-block;
     padding: 7px 11px;
     background: var(--pink);
-    color: var(--text);
     border-radius: 9px;
+    color: var(--text);
     font-size: 13px;
 }
-/* Mobile */
+
 @media (max-width: 700px) {
     .content-bank-section {
         padding: 25px 15px 50px;
     }
+
     .topic-card {
         margin: 20px 0;
         border-radius: 20px;
     }
+
     .topic-toggle {
-        padding: 22px 18px;
         gap: 12px;
+        padding: 22px 18px;
     }
-    .topic-toggle h2 {
+
+    .topic-card-content h2 {
         font-size: 23px;
     }
-    .topic-toggle p {
+
+    .topic-card-content p {
         font-size: 15px;
     }
+
     .topic-outcome {
         padding: 12px;
         font-size: 13px;
     }
+
     .topic-arrow {
         width: 34px;
         height: 34px;
         font-size: 22px;
     }
+
     .topic-activities {
         padding: 0 18px 20px;
     }
+
     .topic-activities > h3 {
         font-size: 20px;
     }
+
     .activity-grid {
         grid-template-columns: minmax(0, 1fr);
         gap: 14px;
     }
+
     .activity-item {
         padding: 18px;
     }
+
     .activity-item h4 {
         font-size: 18px;
     }
 }
-@media (prefers-reduced-motion: reduce) {
-    .topic-card,
-    .topic-arrow,
-    .activity-item,
-    .activity-item .check-button {
-        transition: none;
+
+
+/* =====================================================
+   14. Mobile header (kept last so it wins over section 3)
+   ===================================================== */
+
+@media (max-width: 700px) {
+    header {
+        position: static;          /* a wrapped, sticky nav eats too much screen */
+        flex-direction: column;
+        gap: 20px;
+        padding: 16px 15px;
     }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        text-align: center;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   15. Reduced motion (applies to the whole site)
+   ===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .card:hover,
+    .button:hover,
+    .podcast-card:hover,
     .activity-item:hover {
         transform: none;
     }
