@@ -16,7 +16,7 @@
           "type": "Interactive Activity",
           "description": "Learn personal information words and practise introducing yourself.",
           "status": "available",
-          "url": "a1/personal-information.html"
+          "url": "../a1/personal-information.html"
         },
         {
           "id": "a1-pi-02",
