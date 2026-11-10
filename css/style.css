@@ -1355,7 +1355,109 @@ footer {
     text-align: center;
 }
 
+/* =====================================================
+   Progress tracking (content bank)
+   ===================================================== */
 
+.topic-progress {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-block-start: 1rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.topic-progress-bar {
+    flex: 1 1 10rem;
+    max-width: 22rem;
+    height: 0.625rem;
+    overflow: hidden;
+    appearance: none;
+    background: var(--lavender);
+    border: 0;
+    border-radius: 1rem;
+
+    &::-webkit-progress-bar {
+        background: var(--lavender);
+    }
+
+    &::-webkit-progress-value {
+        background: var(--purple);
+        border-radius: 1rem;
+    }
+
+    &::-moz-progress-bar {
+        background: var(--purple);
+        border-radius: 1rem;
+    }
+}
+
+.activity-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.done-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5625rem 0.875rem;
+    background: transparent;
+    border: 0.125rem solid var(--border);
+    border-radius: 0.625rem;
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition: background 0.2s ease, border-color 0.2s ease;
+
+    &::before {
+        content: "";
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.125rem;
+        height: 1.125rem;
+        border: 0.125rem solid currentColor;
+        border-radius: 0.3125rem;
+        font-size: 0.75rem;
+        line-height: 1;
+    }
+
+    &:hover {
+        background: var(--lavender);
+    }
+
+    &[aria-pressed="true"] {
+        background: var(--sage);
+        border-color: var(--sage);
+
+        &::before {
+            content: "\2713"; /* check mark */
+            background: var(--purple);
+            border-color: var(--purple);
+            color: white;
+        }
+    }
+}
+
+.activity-item.is-done {
+    border-color: var(--purple);
+}
+
+.content-status {
+    min-height: 1.5rem;
+    margin-block: 1rem 0;
+    color: var(--purple-dark);
+    font-weight: 600;
+    text-align: center;
+}
 /* =====================================================
    15. Dark mode (set by theme.js via data-theme="dark")
    ===================================================== */
