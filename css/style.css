@@ -1824,3 +1824,30 @@ button:focus-visible {
     }
 
 }
+/* Modern SALC Card Icons */
+
+.card-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--lavender);
+    color: var(--purple);
+
+    border-radius: 16px;
+    margin-bottom: 1.25rem;
+}
+
+.card-icon svg {
+    width: 27px;
+    height: 27px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
